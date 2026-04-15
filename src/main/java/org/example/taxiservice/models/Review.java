@@ -12,4 +12,8 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    String content;
+
+    Double ratings;
 }
