@@ -5,6 +5,7 @@ import org.example.taxiservice.repositories.ReviewRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 @Service
@@ -27,6 +28,15 @@ public class ReviewService implements CommandLineRunner {
                 .ratings(5.0)
                 .build();//code to create plain java object
 
-        reviewRepository.save(r);//this code executes the sql query
+        System.out.println(r);
+        reviewRepository.save(r);
+
+        List<Review> reviews=reviewRepository.findAll();
+        for(Review r1:reviews){
+            System.out.println(r1.getContent());
+        }
+
+        reviewRepository.deleteById(2L);
     }
+
 }
